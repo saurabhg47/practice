@@ -1,0 +1,55 @@
+1. For checking django version:
+    $ python -c "import django; print(django.get_version())"
+
+2. For creating project directory:
+    $ django-admin startproject mysite (project_name)
+
+3. For install whatever you configured with in INSTALLED_APPS section of setting.py:
+    $ python manage.py migrate (again run after 7th cmd to create table in DB)
+
+4. For run server:
+    $ python manage.py runserver (default 127.0.0.1:8000)
+    $ python manage.py runserver 8080 (specific port_no)
+    $ python manage.py runserver 0.0.0.0:8000 (listen on all public IPs (useful if you want to show off your work on other computers on your network)
+
+5. For creating app directory :
+    $ python manage.py startapp polls (app_name)
+
+6. For intalled app which we created above:
+    $ python manage.py makemigrations polls (app_name)
+
+7. For sqlmigrate takes migration names and returns their SQL:
+    $ python manage.py sqlmigrate polls 0001
+
+8. For checking errors in project:
+    $ python manage.py check;
+
+------------------------------------------------------------------------------------------
+DB
+1. For see the table data
+>>> Question.objects.all()
+
+2. For inserting data in table
+>>> q = Question(question_test="What's new?", pub_date=timezone.now()) or
+>>> Question(question_test="What's new?", pub_date=timezone.now())
+
+3. For saving the Data:
+>>> q.save()
+
+4. For finding any column:
+>>> q.id or q.question_test
+
+5. For modifing the column value
+>>> q.question_test (column_name) = "What's up?"
+
+6. For finding record in a column which will start with:
+>>> Question.objects.filter(question_test__startswith='What')
+
+7. For get any column data:
+>>> Question.objects.get(id=1)
+
+===============================================================================================
+Note:
+Change your models (in models.py).
+Run python manage.py makemigra>>> q = Question(question_test="What's new?", pub_date=timezone.now())tions to create migrations for those changes
+Run python manage.py migrate to apply those changes to the database.
