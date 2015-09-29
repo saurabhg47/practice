@@ -53,3 +53,12 @@ Note:
 Change your models (in models.py).
 Run python manage.py makemigra>>> q = Question(question_test="What's new?", pub_date=timezone.now())tions to create migrations for those changes
 Run python manage.py migrate to apply those changes to the database.
+
+===============================================================================================
+Note:
+For finding the django files in your file system
+$ python -c "
+import sys
+sys.path = sys.path[1:]
+import django
+print(django.__path__)"
