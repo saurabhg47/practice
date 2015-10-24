@@ -24,6 +24,13 @@
 8. For checking errors in project:
     $ python manage.py check;
 
+9. For checking the django files in your system:
+    $ python -c "
+        import sys
+        sys.path = sys.path[1:]
+        import django
+        print(django.__path__)"
+
 ------------------------------------------------------------------------------------------
 DB
 1. For see the table data
